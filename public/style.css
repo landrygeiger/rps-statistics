@@ -1,0 +1,274 @@
+:root {
+    --background-gray: #f7f7f7;
+    --text-dark-blue: #0a003d;
+    --text-dark-gray: #363636;
+    --text-lighter-gray: #474747;
+    --text-light-gray: #6e6e6e;
+    --cool-blue: #29a3ff;
+    --light-blue: #a1d7ff;
+    --win-green: #9aff63;
+    --loss-red: #ff745c;
+    --gold: #ffe552;
+}
+
+html, body {
+    margin: 0;
+    font-family: calibri;
+    height: 100%;
+    background-color: var(--background-gray);
+}
+
+#root {
+    height: 100%;
+}
+
+.app {
+    background-color: var(--background-gray);
+    height: 100%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 100%;
+    background-color: white;
+}
+
+.text-title {
+    font-weight: bold;
+}
+
+.text-subtitle {
+    color: var(--text-light-gray);
+}
+
+.stat-display {
+    background-color: white;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 150px;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.pie-chart-display, .pie-chart-container, .pie-chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pie-chart-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    top: -130px;
+    margin-bottom: -100px;
+    background-color: white;
+}
+
+.pie-chart {
+    /*
+    background-image: conic-gradient( 
+                var(--win-green) 90deg,  
+                var(--loss-red) 0 180deg,  
+                white 0);
+            */
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    transform: rotate(270deg);
+}
+
+.pie-chart-label {
+    transform: rotate(-270deg);
+    width: 260px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color:white;
+    color: black;
+    font-size: 50px;
+}
+
+.game-list {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+}
+
+.game {
+    position: relative;
+    background-color: red;
+    display: flex;
+    margin: 10px;
+}
+
+.game-info {
+    position: relative;
+    background-color: white;
+    padding: 10px 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.win-background, .loss-background, .game, .game-info {
+    max-width: 700px;
+    width: 100%;
+}
+
+.win-background, .loss-background {
+    position: absolute;
+    left: -10px;
+    border-radius: 8px;
+    height: 100%;
+}
+
+.win-background {
+    background-color: var(--win-green);
+}
+
+.loss-background {
+    background-color: var(--loss-red);
+}
+
+.gold {
+    color: var(--gold);
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid var(--cool-blue);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.content-area {
+    background-color: white;
+    max-width: 1000px;
+    margin: 50px auto;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--background-gray);
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: var(--background-gray);
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    outline: none;
+    transition: 0.3s
+}
+
+input[type=submit]:hover {
+    background-color: var(--light-blue);
+    color: white;
+}
+
+input[type=submit]:active {
+    background-color: var(--cool-blue);
+}
+
+.radio-container {
+    display: block;
+    position: relative;
+    width: 32%;
+    height: 125px;
+    cursor: pointer;
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.radio-container input, .checkbox-container input {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radio-container:hover input ~ .radio-icon {
+    background-color: var(--text-lighter-gray);
+}
+
+.radio-container input:checked ~ .radio-icon {
+    background-color: var(--cool-blue);
+}
+
+.checkbox-container input:checked ~ .custom-check {
+    background-color: var(--win-green);
+}
+
+.radio-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-dark-gray);
+    border-radius: 15px;
+    font-size: 50px;
+    color: white;
+    transition: 0.3s
+}
+
+.custom-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--loss-red);
+    border-radius: 15px;
+    font-size: 50px;
+    color: white;
+    transition: 0.3s
+}
+
+.flex-line-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flex-column-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+}
